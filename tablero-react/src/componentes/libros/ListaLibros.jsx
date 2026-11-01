@@ -1,7 +1,6 @@
-import TarjetaLibro from "./TarjetaLibro.jsx";
-
+import TarjetaLibro from './TarjetaLibro.jsx'
 function ListaLibros({ libros, onAvanzar, onQuitar }) {
-    if (series.length === 0) {
+    if (libros.length === 0) {
         return (
             <div className="alert alert-info mb-0">
                 Ningún libro coincide con los filtros.
@@ -12,7 +11,7 @@ function ListaLibros({ libros, onAvanzar, onQuitar }) {
     return (
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
             {libros.map((libro) => (
-                <div className="col" key={libro.id}>
+                <div className="col" key={libro.id + libro.titulo}>
                     <TarjetaLibro libro={libro} onAvanzar={onAvanzar} onQuitar={onQuitar}/>
                 </div>
             ))}
@@ -20,4 +19,4 @@ function ListaLibros({ libros, onAvanzar, onQuitar }) {
     )
 }
 
-export default ListaSeries
+export default ListaLibros

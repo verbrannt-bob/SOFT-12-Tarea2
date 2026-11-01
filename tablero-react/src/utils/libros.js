@@ -1,4 +1,4 @@
-import { ESTADOS } from '../data/series.js'
+import { ESTADOS } from '../data/libros.js'
 
 export function siguienteEstado(estado) {
   const posicion = ESTADOS.indexOf(estado)

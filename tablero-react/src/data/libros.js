@@ -1,6 +1,6 @@
 export const ESTADOS = ['Pendiente', 'Leyendo', 'Leído']
 export const MIEMBROS = ['Roberto', 'Alex', 'María', 'Marta']
-export const IDIOMAS = ['Inglés', 'Español', 'Alemán', 'Francés']
+export const IDIOMAS = ['Inglés', 'Español', 'Alemán', 'Francés', 'Otro']
 
 export const librosIniciales = [
     { id: 1, titulo: 'Dune', autor: 'Frank Herbert', idiomaOrig: 'Inglés',estado: 'Leyendo', miembro: 'Roberto'},

@@ -30,7 +30,7 @@ body {
 /* Colores de la insignia de cada estado */
 .estado-pendiente { background-color: #e2e8f0; color: #334155; }
 .estado-leyendo  { background-color: #fef3c7; color: #92400e; }
-.estado-leido  { background-color: #dcfce7; color: #166534; }
+.estado-leído  { background-color: #dcfce7; color: #166534; }
 
 /* Número grande del resumen */
 .resumen-numero {

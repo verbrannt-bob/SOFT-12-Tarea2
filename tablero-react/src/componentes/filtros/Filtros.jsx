@@ -1,4 +1,4 @@
-import { ESTADOS, MIEMBROS, IDIOMAS } from '../../data/series.js'
+import { ESTADOS, MIEMBROS, IDIOMAS } from '../../data/libros.js'
 
 function Filtros({ estado, miembro, idiomaOrig,onCambiarEstado, onCambiarMiembro, onCambiarIdioma}) {
     return (
@@ -48,3 +48,5 @@ function Filtros({ estado, miembro, idiomaOrig,onCambiarEstado, onCambiarMiembro
         </div>
     )
 }
+
+export default Filtros

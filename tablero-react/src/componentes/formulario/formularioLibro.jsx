@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IDIOMAS } from "../../data/libros.js";
+import { IDIOMAS, MIEMBROS } from "../../data/libros.js";
 import { validarLibro } from "../../utils/validarLibro.js";
 
 const VACIO = { titulo: '', autor: '', idioma: '', miembro: '' }

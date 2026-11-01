@@ -10,3 +10,5 @@ function Resumen({conteos}) {
         </div>
     )
 }
+
+export default Resumen
