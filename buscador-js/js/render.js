@@ -1,8 +1,13 @@
+import { agregarALista } from "./lista.js"
+import { cambiarEstado } from "./lista.js"
+import { eliminarLinea } from "./lista.js"
+
 const zonaEstado = document.getElementById('estado')
 const zonaResultados = document.getElementById('resultados')
 const zonaModales = document.getElementById('modales')
+const zonaListaLibros = document.getElementById('lista')
 
-function crear(etiqueta, clase, texto, id) {
+export function crear(etiqueta, clase, texto, id) {
     const elemento = document.createElement(etiqueta)
     if (clase) elemento.className = clase
     if (texto) elemento.textContent = texto
@@ -53,18 +58,7 @@ function crearTarjeta(libro) {
 }
 
 function crearModal(libro) {
-    // const modal = crear('article', 'modal fade modal-dialog-centered', '' ,'modal-' + libro.id)
-    // const contenedor = crear('div', 'detalle-libro')
-    // const imagen = crear('img')
-    // imagen.src = libro.portada
-    // imagen.alt = 'Portada de ' + libro.titulo
-    // const titulo = crear('h3', '', libro.titulo)
-    // const autor = crear('h4', '', libro.autor)
-    // const annio = crear('p', 'annio')
-    // const disp_spa = libro.disp_spa ? "Sí" : "No"
-    // const disponibilidad = crear('p', 'disponibilidad', 'Disponible en español: ' + disp_spa)
-
-    const modal = crear('div', 'modal', '', 'modal-'+ libro.id)
+    const modal = crear('div', 'modal', '', 'modal-' + libro.id)
     modal.setAttribute('tabindex', '-1')
     const dialog = crear('div', 'modal-dialog')
     const content = crear('div', 'modal-content')
@@ -85,18 +79,48 @@ function crearModal(libro) {
     const btnCerrar = crear('button', 'btn btn-secondary', 'Cerrar')
     btnCerrar.setAttribute('type', 'button')
     btnCerrar.setAttribute('data-bs-dismiss', 'modal')
-    const btnAgregar = crear('button', 'btn btn-primary', 'Agregar a mi lista', 'agregarLibro')
+    const btnAgregar = crear('button', 'btn btn-primary agregar-libro', 'Agregar a mi lista')
     btnAgregar.setAttribute('type', 'button')
     btnAgregar.setAttribute('data-bs-dismiss', 'modal')
 
+    btnAgregar.addEventListener("click", () => agregarALista(libro.titulo, libro.autor, libro.id))
+
 
     header.append(titulo, btnX)
-    body.append( imagen ,autor, annio, disp_spa)
+    body.append(imagen, autor, annio, disp_spa)
     footer.append(btnCerrar, btnAgregar)
     content.append(header, body, footer)
     dialog.append(content)
     modal.append(dialog)
-
-    // contenedor.append(imagen, titulo, autor, annio, disponibilidad)
     return modal
+}
+
+export function mostrarLista(lista) {
+    zonaListaLibros.replaceChildren()
+    zonaListaLibros.replaceChildren(...lista.map(crearLineaLista))
+}
+
+function crearLineaLista(libro) {
+    const tdBtnEstado = crear('td')
+    const btnEstado = crear('button', 'btn btn-primary', 'Cambiar Estado')
+    btnEstado.setAttribute('type', 'button')
+    btnEstado.addEventListener('click',() => cambiarEstado(libro.id))
+    tdBtnEstado.appendChild(btnEstado)
+
+    const tdBtnEliminar = crear('td')
+    const btnEliminar = crear('button', 'btn btn-danger', 'Eliminar')
+    btnEliminar.setAttribute('type', 'button')
+    btnEliminar.addEventListener('click', () => eliminarLinea(libro.id))
+    tdBtnEliminar.appendChild(btnEliminar)
+
+    const lineaLibro = document.createElement('tr')
+    lineaLibro.innerHTML = `
+            <th scope="row">${libro.titulo}</th>
+            <td>${libro.autor}</td>
+            <td>${libro.estado}</td>
+        `
+    lineaLibro.appendChild(tdBtnEstado)
+    lineaLibro.appendChild(tdBtnEliminar)
+
+    return lineaLibro
 }
