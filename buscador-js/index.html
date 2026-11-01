@@ -1,21 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encuentra Libro</title>
+    <title>Mi LibroLista</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="./css/estilos.css">
 </head>
+
 <body>
-    <header>
-        <div>
-            <span></span>
-            <h1></h1>
-            <nav></nav>
+    <nav class="navbar navbar-expand-lg bg-body-secondary">
+        <div class="container-fluid">
+            <div class="navbar-brand d-flex logo">
+                <i class="fa-solid fa-book-open-reader fa-2xl"></i>
+                <h1>Mi LibroLista</h1>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="menu">
+                <ul class="navbar-nav">
+                    <li class="navbar-item">
+                        <a class="nav-link" href="#busqueda">Buscar Libro</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="nav-link" href="#lista">Mi lista</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="nav-link" href="#proponer">Proponer un Libro al Club</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </header>  
+    </nav>
     <main>
-        <section></section>
+        <section id="busqueda" class="card">
+            <h2>Buscar un libro:</h2>
+            <div class="card-body">
+                <form novalidate id="formularioBusqueda">
+                    <input type="text" class="form-control" id="inputBusqueda" placeholder="Buscar Libros..."
+                        aria-label="Buscar Libros">
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </form>
+            </div>
+          <div id="estado"></div>
+          <div id="resultados" class="row row-cols-2 row-cols-sm-4 row-cols-lg-6 g-3"></div>
+        </section>
+        <section id="lista"></section>
+        <section id="proponer"></section>
     </main>
     <footer></footer>
+
+    <script src="https://kit.fontawesome.com/ec05546885.js" crossorigin="anonymous"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="module" src="./js/formulario.js"></script>
 </body>
+
 </html>
