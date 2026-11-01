@@ -13,7 +13,9 @@ export async function buscarLibros(texto) {
         titulo: resultado.title,
         autor: resultado.author_name,
         annio_publicacion: resultado.first_publish_year,
-        portada: resultado.cover_i ? URL_PORTADA.replace("{cover_i}", resultado.cover_i) : 'assets/sin-portada.jpg'
+        portada: resultado.cover_i ? URL_PORTADA.replace("{cover_i}", resultado.cover_i) : 'assets/sin-portada.jpg',
+        disp_spa: resultado.language.includes("spa"),
+        id: resultado.key
     }))
 }
 

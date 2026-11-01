@@ -1,0 +1,32 @@
+.detalle-libro {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 
+    "img titulo"
+    "img autor"
+    "img annio"
+    "img spa";
+
+    img {
+        grid-area: img;
+    }
+
+    h3 {
+        grid-area: titulo;
+    }
+
+    h4 {
+        grid-area: autor;
+    }
+
+    .annio {
+        grid-area: annio;
+    }
+
+    .disponibilidad {
+        grid-area: spa;
+    }
+
+
+
+}

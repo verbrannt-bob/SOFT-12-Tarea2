@@ -17,4 +17,25 @@
   height: 70%;
 }
 
+.detalle-libro {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "img titulo" "img autor" "img annio" "img spa";
+}
+.detalle-libro img {
+  grid-area: img;
+}
+.detalle-libro h3 {
+  grid-area: titulo;
+}
+.detalle-libro h4 {
+  grid-area: autor;
+}
+.detalle-libro .annio {
+  grid-area: annio;
+}
+.detalle-libro .disponibilidad {
+  grid-area: spa;
+}
+
 /*# sourceMappingURL=estilos.css.map */
