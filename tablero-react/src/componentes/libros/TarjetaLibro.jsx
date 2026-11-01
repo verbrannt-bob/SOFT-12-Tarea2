@@ -8,8 +8,8 @@ function TarjetaLibro({ libro, onAvanzar, onQuitar }) {
             </span>
             <h3 className="h6 card-title">{libro.titulo}</h3>
             <p className="card-text small small-secondary mb-3">Escrito: {libro.autor}</p>
-            <p className="card-text small small-secondary mb-3">{libro.annio}</p>
             <p className="card-text small small-secondary mb-3">Porpuesta por: {libro.miembro}</p>
+            <p className="card-text small small-secondary mb-3">Idioma original: {libro.indiomaOrig}</p>
             <div className="mt-auto d-flex gap-2">
                 <button className="btn btn-sm btn-primary" onClick={() => onAvanzar(libro.id)}>
                     Cambiar estado
