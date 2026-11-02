@@ -1,10 +1,22 @@
+@use "../variables" as *;
+
+.encabezado-pagina {
+    background-color: $light;
+
+    a {
+        color: $secundario;
+    }
+}
+
 .logo{
     svg {
         padding: 0.5rem;
+        color: $primario;
     }
 
     h1 {
         margin: 0;
         font-size: 3rem;
+        color: $primario;
     }
 }

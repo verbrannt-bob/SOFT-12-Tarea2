@@ -1,0 +1,73 @@
+@use "../variables" as *;
+
+.btn {
+    border-radius: 0;
+}
+
+.btn-primary {
+    --bs-btn-color: #{$light};
+    --bs-btn-bg: #{$primario};
+    --bs-btn-border-color: #{$primario};
+    --bs-btn-hover-color: #{$light};
+    --bs-btn-hover-bg: #{$secundario};
+    --bs-btn-hover-border-color: #{$secundario};
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --dark-bs-btn-active-color: #{$light};
+    --bs-btn-active-bg: #{$secundario};
+    --bs-btn-active-border-color: #{$dark};
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #{$light};
+    --bs-btn-disabled-bg: #{$primario};
+    --bs-btn-disabled-border-color: #{$primario};
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #{$primario};
+    --bs-btn-border-color: #{$primario};
+    --bs-btn-hover-color: #{$light};
+    --bs-btn-hover-bg: #{$primario};
+    --bs-btn-hover-border-color: #{$primario};
+    --bs-btn-focus-shadow-rgb: 13, 110, 253;
+    --bs-btn-active-color: #{$light};
+    --bs-btn-active-bg: #{$primario};
+    --bs-btn-active-border-color: #{$primario};
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #{$primario};
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #{$primario};
+    --bs-gradient: none;
+}
+
+.btn-outline-success {
+    --bs-btn-color: #{$success};
+    --bs-btn-border-color: #{$success};
+    --bs-btn-hover-color: #{$light};
+    --bs-btn-hover-bg: #{$success};
+    --bs-btn-hover-border-color: #{$success};
+    --bs-btn-focus-shadow-rgb: 25, 135, 84;
+    --bs-btn-active-color: #{$light};
+    --bs-btn-active-bg: #{$success};
+    --bs-btn-active-border-color: #{$success};
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #{$success};
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #{$success};
+    --bs-gradient: none;
+}
+
+.btn-outline-danger {
+    --bs-btn-color: #{$danger};
+    --bs-btn-border-color: #{$danger};
+    --bs-btn-hover-color: #{$light};
+    --bs-btn-hover-bg: #{$danger};
+    --bs-btn-hover-border-color: #{$danger};
+    --bs-btn-focus-shadow-rgb: 220, 53, 69;
+    --bs-btn-active-color: #{$light};
+    --bs-btn-active-bg: #{$danger};
+    --bs-btn-active-border-color: #{$danger};
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #{$danger};
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #{$danger};
+    --bs-gradient: none;
+}

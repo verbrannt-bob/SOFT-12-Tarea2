@@ -1,3 +1,11 @@
+@use "../variables.scss" as *;
+
+.seccion-busqueda{
+    h2{
+        color: $primario;
+    }
+}
+
 .tarjeta-libro {
     img {
         height: 70%;

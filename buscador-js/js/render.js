@@ -42,17 +42,23 @@ export function mostrarResultados(libros) {
 function crearTarjeta(libro) {
     const columna = crear('div', 'col')
     const tarjeta = crear('article', 'card h-100 tarjeta-libro')
-    const imagen = crear('img', 'card-img-bottom')
+    const imagen = crear('img', 'card-img-top')
     imagen.src = libro.portada
     imagen.alt = 'Portada de ' + libro.titulo
     const cuerpo = crear('div', 'card-body cuerpo')
-    const autor = libro.autor
+
+    let autor
+    if(libro.autor.length <= 3) {
+        autor = crear('p', 'card-text small text-secondary mb-0', 'Por: ' + libro.autor.join(', '))
+    } else {
+        autor = crear('p', 'card-text small text-secondary mb-0', 'Por:' + libro.autor.slice(0, 3).join(', ') + "...")
+    }
     const annio = libro.annio_publicacion ? libro.annio_publicacion : "Fecha de publicacion desconocida"
-    const btn = crear('button', 'btn btn-primary', 'Detalles')
+    const btn = crear('button', 'btn btn-outline-primary', 'Detalles')
     btn.setAttribute('data-bs-toggle', 'modal')
     btn.setAttribute('data-bs-target', '#modal-' + libro.id)
-    cuerpo.append(crear('h3', 'h6 card-title', libro.titulo), crear('p', 'card-text small text-secondary mb-0', 'Por: ' + autor), crear('p', 'card-text small text-secondary mb-0', annio))
-    tarjeta.append(cuerpo, imagen, btn)
+    cuerpo.append(crear('h3', 'h6 card-title', libro.titulo), autor, crear('p', 'card-text small text-secondary mb-0', annio))
+    tarjeta.append(imagen, cuerpo, btn)
     columna.append(tarjeta)
     return columna
 }
@@ -68,26 +74,28 @@ function crearModal(libro) {
     btnX.setAttribute('type', 'button')
     btnX.setAttribute('data-bs-dismiss', 'modal')
     btnX.setAttribute('aria-label', 'Cerrar')
-    const body = crear('div', 'modal-body cuerpo-detalles')
+    const body = crear('div', 'modal-body cuerpo-detalles d-flex gap-3')
     const imagen = crear('img', 'img-detalles')
     imagen.src = libro.portada
     imagen.alt = 'Portada de ' + libro.titulo
-    const autor = crear('p', 'detalle-autor', 'Por:' + libro.autor)
+    const autor = crear('p', 'detalle-autor', 'Por: ' + libro.autor.join(', '))
     const annio = crear('p', 'detalle-annio', libro.annio_publicacion ? libro.annio_publicacion : "Fecha de publicacion desconocida")
     const disp_spa = crear('p', 'detalles-disp', 'Disponible en español: ' + (libro.disp_spa ? "Sí" : "No"))
     const footer = crear('div', 'modal-footer')
-    const btnCerrar = crear('button', 'btn btn-secondary', 'Cerrar')
+    const btnCerrar = crear('button', 'btn btn-outline-danger', 'Cerrar')
     btnCerrar.setAttribute('type', 'button')
     btnCerrar.setAttribute('data-bs-dismiss', 'modal')
-    const btnAgregar = crear('button', 'btn btn-primary agregar-libro', 'Agregar a mi lista')
+    const btnAgregar = crear('button', 'btn btn-outline-primary agregar-libro', 'Agregar a mi lista')
     btnAgregar.setAttribute('type', 'button')
     btnAgregar.setAttribute('data-bs-dismiss', 'modal')
 
     btnAgregar.addEventListener("click", () => agregarALista(libro.titulo, libro.autor, libro.id))
 
+    const contenedorDetalles = crear('div', 'd-flex flex-column justify-content-evenly')
 
     header.append(titulo, btnX)
-    body.append(imagen, autor, annio, disp_spa)
+    contenedorDetalles.append(autor, annio, disp_spa)
+    body.append(imagen, contenedorDetalles)
     footer.append(btnCerrar, btnAgregar)
     content.append(header, body, footer)
     dialog.append(content)
@@ -102,13 +110,13 @@ export function mostrarLista(lista) {
 
 function crearLineaLista(libro) {
     const tdBtnEstado = crear('td')
-    const btnEstado = crear('button', 'btn btn-primary', 'Cambiar Estado')
+    const btnEstado = crear('button', 'btn btn-outline-primary', 'Cambiar Estado')
     btnEstado.setAttribute('type', 'button')
-    btnEstado.addEventListener('click',() => cambiarEstado(libro.id))
+    btnEstado.addEventListener('click', () => cambiarEstado(libro.id))
     tdBtnEstado.appendChild(btnEstado)
 
     const tdBtnEliminar = crear('td')
-    const btnEliminar = crear('button', 'btn btn-danger', 'Eliminar')
+    const btnEliminar = crear('button', 'btn btn-outline-danger', 'Eliminar')
     btnEliminar.setAttribute('type', 'button')
     btnEliminar.addEventListener('click', () => eliminarLinea(libro.id))
     tdBtnEliminar.appendChild(btnEliminar)
