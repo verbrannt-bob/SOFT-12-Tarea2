@@ -17,7 +17,7 @@ function App() {
         (libro) =>
             (filtroEstado === 'Todos' || libro.estado === filtroEstado) &&
             (filtroMiembro === 'Todos' || libro.miembro === filtroMiembro) &&
-            (filtroIdioma === 'Todos' || libro.idiomaOrig === filtroIdioma || (filtroIdioma === "Otro" && !IDIOMAS.includes(libro.idiomaOrig)))
+            (filtroIdioma === 'Todos' || libro.idiomaOrig === filtroIdioma)
     )
     const conteos = ESTADOS.map((estado) => ({
         estado: estado,
@@ -26,6 +26,7 @@ function App() {
 
     function agregar(datos) {
         const nueva = { ...datos, id: Date.now(), estado: 'Pendiente' }
+        console.log(nueva)
         setLibros([...libros, nueva])
     }
 

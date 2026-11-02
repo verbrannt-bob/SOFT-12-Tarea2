@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IDIOMAS, MIEMBROS } from "../../data/libros.js";
 import { validarLibro } from "../../utils/validarLibro.js";
 
-const VACIO = { titulo: '', autor: '', idioma: '', miembro: '' }
+const VACIO = { titulo: '', autor: '', idiomaOrig: '', miembro: '' }
 
 function FormularioLibro({ onAgregar }) {
     const [datos, setDatos] = useState(VACIO)
@@ -50,12 +50,12 @@ function FormularioLibro({ onAgregar }) {
                 {errores.autor && <div className="invalid-feedback">{errores.autor}</div>}
             </div>
             <div className="mb-3">
-                <label htmlFor="idioma" className="form-label">Idioma Original</label>
+                <label htmlFor="idiomaOrig" className="form-label">Idioma Original</label>
                 <select
-                    id="idioma"
-                    name="idioma"
-                    className={errores.idioma ? 'form-select is-invalid' : 'form-select'}
-                    value={datos.idioma}
+                    id="idiomaOrig"
+                    name="idiomaOrig"
+                    className={errores.idiomaOrig ? 'form-select is-invalid' : 'form-select'}
+                    value={datos.idiomaOrig}
                     onChange={cambiar}
                 >
                     <option value="">Elija…</option>
@@ -63,7 +63,7 @@ function FormularioLibro({ onAgregar }) {
                         <option key={opcion} value={opcion}>{opcion}</option>
                     ))}
                 </select>
-                {errores.idioma && <div className="invalid-feedback">{errores.idioma}</div>}
+                {errores.idiomaOrig && <div className="invalid-feedback">{errores.idiomaOrig}</div>}
             </div>
             <div className="mb-3">
                 <label htmlFor="miembro" className="form-label">Propuesta por</label>
